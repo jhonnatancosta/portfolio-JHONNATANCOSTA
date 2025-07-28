@@ -1,0 +1,40 @@
+/* Variáveis e reset */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #7e22ce;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --gray: #94a3b8;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.destaque {
+    color: var(--primary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Importar componentes */
+@import url('components/header.css');
+@import url('components/particles.css');
+@import url('components/card.css');
+@import url('components/loader.css');

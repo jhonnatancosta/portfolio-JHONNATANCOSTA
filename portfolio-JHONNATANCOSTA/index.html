@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/image/favicon-jcdev.ico">
+    <title>Jhonnatan Costa │ Desenvolvedor Full-Stack</title>
+    <meta name="description" content="Desenvolvedor Full-Stack freelancer especializado em criação de sites, sistemas web, e-commerce e automações. Transforme suas ideias em soluções digitais.">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- DELETE ESTA LINHA -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* ... (mantenha o estilo inline existente) ... */
+    </style>
+</head>
+<body>
+    <div id="loading-screen">
+        <div id="loading-percentage">0%</div>
+    </div>
+
+    <div class="loader"></div>
+
+    <div id="header-component"></div>
+
+    <main id="home" class="home">
+        <div id="particles-js"></div>
+        <div class="container-home">
+            <img src="https://i.ibb.co/Nn6xt80z/Programador-Jhonnatan-Costa.jpg" 
+                 alt="Jhonnatan Costa" class="profile-img">
+            
+            <div class="text-home">
+                <h1>Jhonnatan Costa</h1>
+                <span>Desenvolvedor <span class="destaque texto-animado">Full-Stack</span></span>
+                
+                <p><i class="fas fa-envelope"></i> <a href="mailto:jhonnatancosta576@gmail.com">jhonnatancosta576@gmail.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5565992701468" target="_blank" rel="noopener">+55 65 99270-1468</a></p>
+            </div>
+            
+            <div class="redes-sociais">
+    <a href="https://github.com/jhonnatancosta" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/jhonnatan-costa-programador" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.workana.com/freelancer/6df627542189fab1f0516a6e11335434" target="_blank" rel="noopener" title="Workana"><i class="fa fa-briefcase"></i></a>
+    <!-- Ícones adicionados -->
+    <a href="https://www.instagram.com/jhonnatan.costa.oficial?igsh=NWJhaXoyMzhsbjh2" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100089137933930" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+</div>
+            
+            <div class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-component"></div>
+
+    <script>
+        // Configuração das partículas
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#2563eb" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#2563eb",
+                        opacity: 0.3,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: { enable: true, mode: "grab" },
+                        onclick: { enable: true, mode: "push" },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { distance: 140, line_linked: { opacity: 1 } },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Animação de digitação
+            const textElement = document.querySelector('.texto-animado');
+            const texts = ["Full-Stack", "Front-end", "Back-end", "Freelancer"];
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            
+            function typeEffect() {
+                const currentText = texts[textIndex];
+                
+                if (isDeleting) {
+                    textElement.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    textElement.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+                
+                if (!isDeleting && charIndex === currentText.length) {
+                    setTimeout(() => isDeleting = true, 1500);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                }
+                
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
+            
+            typeEffect();
+            
+            // Scroll para a próxima seção
+            document.querySelector('.scroll-down').addEventListener('click', () => {
+                document.querySelector('#about').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Simulação de carregamento
+            let progress = 0;
+            const loadingInterval = setInterval(() => {
+                progress += 1;
+                document.getElementById('loading-percentage').textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(loadingInterval);
+                    document.getElementById('loading-screen').style.opacity = '0';
+                    setTimeout(() => {
+                        document.getElementById('loading-screen').style.display = 'none';
+                        document.querySelector('.loader').style.display = 'none';
+                    }, 500);
+                }
+            }, 30);
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/components/particles.js"></script>
+    <script src="assets/js/components/textAnimation.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
