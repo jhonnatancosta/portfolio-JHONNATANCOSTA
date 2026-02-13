@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/image/favicon-jcdev.ico">
+    <title>Jhonnatan Costa │ Projetos</title>
+    <meta name="description"
+        content="Portfólio de projetos desenvolvidos por Jhonnatan Costa. Veja exemplos de sites, sistemas web e e-commerce desenvolvidos profissionalmente.">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .destaque {
+            color: var(--primary);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.9);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .container-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-navegacao {
+            display: flex;
+        }
+
+        .lista-navegacao {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .lista-navegacao li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .lista-navegacao li a:hover,
+        .lista-navegacao li a.active {
+            color: white;
+        }
+
+        .lista-navegacao li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .lista-navegacao li a:hover::after,
+        .lista-navegacao li a.active::after {
+            width: 100%;
+        }
+
+        .close-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .projects-section {
+            padding: 150px 0 100px;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .project-content .project-type {
+            display: block;
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-content ul {
+            color: var(--gray);
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .project-content ul li {
+            margin-bottom: 8px;
+        }
+
+        .project-footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 20px;
+            color: var(--gray);
+        }
+
+        .project-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link a:hover {
+            background: transparent;
+            border: 1px solid var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer p {
+            color: var(--gray);
+        }
+
+        .redes-sociais {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .redes-sociais a {
+            color: var(--gray);
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .redes-sociais a:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+
+            .menu-icon,
+            .close-icon {
+                display: block;
+            }
+
+            .menu-navegacao {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background: var(--dark);
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                transition: all 0.3s ease;
+                z-index: 1001;
+            }
+
+            .menu-navegacao.active {
+                right: 0;
+            }
+
+            .lista-navegacao {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container-header">
+            <div class="logo">
+                <a href="index.html">Jhonnatan Costa <span class="destaque">│Dev.</span></a>
+            </div>
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="menu-navegacao">
+                <i class="fa-solid fa-times close-icon"></i>
+                <ul class="lista-navegacao">
+                    <li><a href="index.html">INÍCIO</a></li>
+                    <li><a href="about.html">SOBRE</a></li>
+                    <li><a href="services.html">SERVIÇOS</a></li>
+                    <li><a href="projects.html" class="active">PROJETOS</a></li>
+                    <li><a href="contact.html">CONTATO</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="projects-section">
+        <div class="container">
+            <h1>MEUS <span class="destaque">PROJETOS</span></h1>
+
+            <div class="projects-grid">
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                            alt="Criador de Frases Motivacionais">
+                    </div>
+                    <div class="project-content">
+                        <h3>✨ Criador de Frases Motivacionais</h3>
+                        <span class="project-type">Aplicação Web Interativa</span>
+                        <p>Site de frases inspiradoras com design clean e responsivo. Gere frases aleatórias, compartilhe nas redes sociais e comece o dia com motivação.</p>
+                        <ul>
+                            <li>💬 Frases aleatórias com um clique</li>
+                            <li>📱 Layout totalmente responsivo</li>
+                            <li>🎨 Interface moderna e minimalista</li>
+                            <li>📤 Compartilhamento em redes sociais</li>
+                            <li>🌙 Tema escuro integrado</li>
+                        </ul>
+                        <p>🔧 Projeto desenvolvido com foco em usabilidade e leveza, perfeito para inspirar pessoas todos os dias.</p>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <i class="fab fa-html5" title="HTML5"></i>
+                                <i class="fab fa-css3-alt" title="CSS3"></i>
+                                <i class="fab fa-js" title="JavaScript"></i>
+                                <i class="fab fa-react" title="ReactJS"></i>
+                                <i class="fas fa-heart" title="UX/UI"></i>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://jhonnatancosta.github.io/criador-de-frases-motivacionais/" target="_blank" rel="noopener">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                            alt="Jogo da Cobrinha Realista">
+                    </div>
+                    <div class="project-content">
+                        <h3>🐍 Jogo da Cobrinha Realista</h3>
+                        <span class="project-type">Jogo Web Interativo 🎮</span>
+                        <p>Versão moderna e estilizada do clássico Snake Game. Desenvolvida com HTML5, CSS3 e JavaScript puro, trazendo nostalgia com uma experiência visual aprimorada.</p>
+                        <ul>
+                            <li>🕹️ Controles por teclado (setas) e toque (celular)</li>
+                            <li>📱 Compatível com Android e iOS</li>
+                            <li>✨ Efeitos de sombra e animações suaves</li>
+                            <li>🍎 Sistema de pontuação progressiva</li>
+                            <li>⚡ Desempenho otimizado e responsivo</li>
+                        </ul>
+                        <p>🔧 Jogo funcional, direto do navegador, sem necessidade de instalação. Ideal para matar a saudade do clássico!</p>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <i class="fab fa-html5" title="HTML5"></i>
+                                <i class="fab fa-css3-alt" title="CSS3"></i>
+                                <i class="fab fa-js" title="JavaScript"></i>
+                                <i class="fas fa-gamepad" title="Game Development"></i>
+                                <i class="fas fa-mobile-alt" title="Mobile Friendly"></i>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://jhonnatancosta.github.io/Jogue-a-Cobrinha-Realista/" target="_blank" rel="noopener">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                            alt="Loja Virtual">
+                    </div>
+                    <div class="project-content">
+                        <h3>Loja Virtual Premium</h3>
+                        <span class="project-type">E-Commerce e Gestão e Automação</span>
+                        <p>Plataforma de e-commerce que integra uma demonstração do nosso sistema de restaurante com integração de pagamentos, gestão de estoque e experiência mobile-first.</p>
+                        <p>Plataforma completa com pedidos automatizados, integração com cozinha, chatbot de cardápio e controle financeiro em tempo real.</p>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://jhonnatancosta.github.io/Pagina-Apresenta-ao-Sistema-Restaurante/" target="_blank" rel="noopener">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
+                            alt="Portal Corporativo">
+                    </div>
+                    <div class="project-content">
+                        <h3>Portal Corporativo</h3>
+                        <span class="project-type">Site Institucional</span>
+                        <p>Site institucional para empresa de tecnologia com design moderno, blog integrado e área para clientes.</p>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="project-link">
+                                <a href="#" target="_blank">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                            alt="JC-Celular - Loja de Eletrônicos">
+                    </div>
+                    <div class="project-content">
+                        <h3>📱 JC-Celular</h3>
+                        <span class="project-type">E-Commerce de Eletrônicos 🚀</span>
+                        <p>Loja virtual completa de smartphones, computadores, notebooks e acessórios. Desenvolvida para oferecer a melhor experiência de compra online.</p>
+                        <ul>
+                            <li>⚡ Promoções relâmpago com contador regressivo</li>
+                            <li>📦 Estoque em tempo real e entrega rápida</li>
+                            <li>🤖 Suporte via WhatsApp com chatbot inteligente</li>
+                            <li>💳 Integração com meios de pagamento</li>
+                            <li>📱 Design 100% responsivo e mobile-first</li>
+                        </ul>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-react"></i>
+                                <i class="fas fa-database"></i>
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://jc-celular-e-acessorios.netlify.app/" target="_blank" rel="noopener">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                            alt="TutuGameX - Loja de Itens Roblox">
+                    </div>
+                    <div class="project-content">
+                        <h3>🎮 TutuGameX</h3>
+                        <span class="project-type">Marketplace de Itens Roblox 🔥</span>
+                        <p>Plataforma especializada na venda de itens raros e exclusivos para Roblox. Entrega instantânea e total segurança na transação.</p>
+                        <ul>
+                            <li>⚡ Ofertas relâmpago com cronômetro</li>
+                            <li>📦 Controle de estoque de itens digitais</li>
+                            <li>🤖 Assistente virtual com suporte 24/7 via WhatsApp</li>
+                            <li>🛒 Processo de compra rápido e intuitivo</li>
+                            <li>🔒 Gateway de pagamento seguro</li>
+                        </ul>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <i class="fab fa-html5"></i>
+                                <i class="fab fa-css3-alt"></i>
+                                <i class="fab fa-js"></i>
+                                <i class="fab fa-react"></i>
+                                <i class="fas fa-robot"></i>
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="project-link">
+                                <a href="https://tutugamex.netlify.app/" target="_blank" rel="noopener">Ver Projeto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+
+            <div class="redes-sociais">
+                <a href="https://github.com/jhonnatancosta" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/jhonnatan-costa-programador" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.workana.com/freelancer/6df627542189fab1f0516a6e11335434" target="_blank" rel="noopener" title="Workana"><i class="fa fa-briefcase"></i></a>
+                <a href="https://www.instagram.com/jhonnatan.costa.oficial?igsh=NWJhaXoyMzhsbjh2" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100089137933930" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+
+        </div> 
+    </main>
+
+    <footer class="footer">
+        <p>Todos os direitos reservados<br />Desenvolvido <span class="destaque">Jhonnatan Costa│Dev.</span></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+
+        document.querySelector('.menu-icon').addEventListener('click', function () {
+            document.querySelector('.menu-navegacao').classList.add('active');
+        });
+
+        document.querySelector('.close-icon').addEventListener('click', function () {
+            document.querySelector('.menu-navegacao').classList.remove('active');
+        });
+
+        document.querySelectorAll('.lista-navegacao a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelector('.menu-navegacao').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
