@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/image/favicon-jcdev.ico">
     <title>Jhonnatan Costa │ Sobre</title>
-    <meta name="description" content="Conheça Jhonnatan Costa, desenvolvedor Full-Stack especializado em criação de sites e sistemas web.">
-    
+    <meta name="description"
+        content="Conheça Jhonnatan Costa, desenvolvedor Full-Stack especializado em criação de sites e sistemas web.">
+
     <link rel="stylesheet" href="assets/css/style.css">
+   <script src="https://cdn.jsdelivr.net/npm/stats.js@0.17.0/build/stats.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
@@ -17,25 +20,24 @@
             --light: #f8fafc;
             --gray: #94a3b8;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: var(--dark);
             color: white;
             overflow-x: hidden;
         }
-        
+
         .destaque {
             color: var(--primary);
         }
-        
-        /* Header Styles (same as index.html) */
+
         .header {
             position: fixed;
             top: 0;
@@ -48,7 +50,7 @@
             padding: 20px 0;
             transition: all 0.3s ease;
         }
-        
+
         .container-header {
             max-width: 1200px;
             margin: 0 auto;
@@ -57,31 +59,31 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo a {
             font-size: 24px;
             font-weight: 700;
             color: white;
             text-decoration: none;
         }
-        
+
         .menu-icon {
             display: none;
             font-size: 24px;
             color: white;
             cursor: pointer;
         }
-        
+
         .menu-navegacao {
             display: flex;
         }
-        
+
         .lista-navegacao {
             display: flex;
             list-style: none;
             gap: 30px;
         }
-        
+
         .lista-navegacao li a {
             color: #94a3b8;
             text-decoration: none;
@@ -90,12 +92,12 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .lista-navegacao li a:hover,
         .lista-navegacao li a.active {
             color: white;
         }
-        
+
         .lista-navegacao li a::after {
             content: '';
             position: absolute;
@@ -106,12 +108,12 @@
             background: var(--primary);
             transition: all 0.3s ease;
         }
-        
+
         .lista-navegacao li a:hover::after,
         .lista-navegacao li a.active::after {
             width: 100%;
         }
-        
+
         .close-icon {
             display: none;
             font-size: 24px;
@@ -121,63 +123,62 @@
             right: 20px;
             cursor: pointer;
         }
-        
-        /* About Section Styles */
+
         .about-section {
             padding: 150px 0 100px;
             background: linear-gradient(to bottom, #0f172a, #1e293b);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         .about-content {
             display: flex;
             align-items: center;
             gap: 50px;
         }
-        
+
         .about-text {
             flex: 1;
         }
-        
+
         .about-image {
             flex: 1;
             text-align: center;
         }
-        
+
         .about-image img {
             max-width: 100%;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-        
+
         h1 {
             font-size: 48px;
             margin-bottom: 30px;
         }
-        
+
         p {
             font-size: 18px;
             line-height: 1.6;
             color: var(--gray);
             margin-bottom: 20px;
         }
-        
+
         .skills-container {
             margin-top: 40px;
         }
-        
+
         .skills-list {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
             margin-top: 20px;
         }
-        
+
         .skill-item {
             background: rgba(37, 99, 235, 0.1);
             padding: 10px 20px;
@@ -185,24 +186,25 @@
             color: var(--primary);
             font-weight: 500;
         }
-        
-        /* Footer Styles (same as index.html) */
+
         .footer {
             background: rgba(15, 23, 42, 0.9);
             padding: 30px 0;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .footer p {
             color: var(--gray);
         }
 
         @media (max-width: 768px) {
-            .menu-icon, .close-icon {
+
+            .menu-icon,
+            .close-icon {
                 display: block;
             }
-            
+
             .menu-navegacao {
                 position: fixed;
                 top: 0;
@@ -215,28 +217,28 @@
                 transition: all 0.3s ease;
                 z-index: 1001;
             }
-            
+
             .menu-navegacao.active {
                 right: 0;
             }
-            
+
             .lista-navegacao {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .about-content {
                 flex-direction: column;
             }
-            
+
             h1 {
                 font-size: 36px;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- HEADER -->
     <header class="header">
         <div class="container-header">
             <div class="logo">
@@ -261,28 +263,38 @@
     <main class="about-section">
         <div class="container">
             <h1>SOBRE <span class="destaque">MIM</span></h1>
-            
+
             <div class="about-content" data-aos="fade-up">
                 <div class="about-text">
-                    <p>Olá, eu sou <span class="destaque">Jhonnatan Costa</span>, desenvolvedor Full-Stack com experiência em criação de sistemas web, aplicações e automações.</p>
-                    
-                    <p>Com mais de 3 anos de experiência no mercado, tenho trabalhado com diversas tecnologias para criar soluções digitais eficientes e de alta qualidade para meus clientes.</p>
-                    
-                    <p>Minha jornada na programação começou quando eu era adolescente, criando pequenos scripts para automação de tarefas. Desde então, minha paixão por desenvolvimento só cresceu, levando-me a me especializar em diversas tecnologias.</p>
-                    
-                    <p>Atualmente, estou cursando Engenharia de Software para aprofundar meus conhecimentos e me manter atualizado com as melhores práticas do mercado.</p>
-                    
-                    <p>Estou também me aprofundando nos estudos sobre desenvolvimento e criação de Inteligência Artificial com base nos cursos da Microsoft.</p>
-                    
-                    <p>Tenho paixão por tecnologia, especialmente nas áreas de programação e cibersegurança.</p>
-                    
-                    <p>Além de desenvolvedor, também atuo como pentester, buscando sempre entender e fortalecer a segurança de sistemas.</p>
+                    <p>👋 Olá, eu sou <span class="destaque">Jhonnatan Costa</span>, programador Full-Stack e
+                        especialista em cibersegurança, atuando também como pentester. Com mais de 3 anos de experiência
+                        no mercado, desenvolvo sistemas web completos, aplicações interativas, automações e soluções
+                        seguras, unindo desenvolvimento e segurança desde a concepção do projeto.</p>
 
-                    <p>Estou constantemente em busca de novos desafios e aprendizados para evoluir profissionalmente nesse universo da tecnologia.</p>
-                   
-                    <p>Amo de paixão  o que faço  e estou sempre disposto a aprender e compartilhar conhecimentos com a comunidade.</p>
-                    
-                        <div class="skills-container">
+                    <p>Minha jornada na programação começou quando eu era adolescente, criando pequenos scripts para
+                        automatizar tarefas. Essa paixão me levou a me especializar em diversas linguagens e frameworks,
+                        como Java, C#, C++, Python, JavaScript, React, Node.js, além de ferramentas como Docker, Git,
+                        Kali Linux e Wireshark. Atualmente curso Engenharia de Software para aprofundar minha base
+                        teórica e também estou me especializando em Inteligência Artificial pelos cursos oficiais da
+                        Microsoft.</p>
+
+                    <p>Além de desenvolvedor, atuo como pentester, realizando testes de invasão e análises de
+                        vulnerabilidade. Acredito que um bom programador deve saber proteger o que constrói — por isso,
+                        trago a mentalidade de segurança para todos os meus projetos, seja um sistema para restaurantes,
+                        um site institucional ou um e-commerce.</p>
+
+                    <p>Entre meus projetos em destaque estão o <strong>Sistema Premium para Restaurantes</strong>
+                        (gestão de pedidos e vendas), o <strong>Jogo da Cobrinha Realista</strong> (desenvolvido com
+                        HTML5 Canvas e JavaScript puro), a loja virtual <strong>JC Celular e Acessórios</strong> com
+                        chatbot integrado, e o <strong>TutuGameX</strong>, plataforma de infoprodutos para Roblox com
+                        pagamentos via PIX. Você pode conferir esses e outros trabalhos no meu GitHub
+                        (github.com/jhonnatancosta) e nos portfólios online.</p>
+
+                    <p>Estou constantemente em busca de novos desafios e aprendizados, sempre aberto a parcerias,
+                        freelas e oportunidades de trabalho. Amo de paixão o que faço e estou sempre disposto a aprender
+                        e compartilhar conhecimentos com a comunidade. Vamos conversar?</p>
+
+                    <div class="skills-container">
                         <h3>Minhas Habilidades</h3>
                         <div class="skills-list">
                             <div class="skill-item">HTML5</div>
@@ -294,20 +306,16 @@
                             <div class="skill-item">MySQL</div>
                             <div class="skill-item">Git</div>
                             <div class="skill-item">Python</div>
-                            <div class="skill-item">C++</div>                        
-                            <div class="skill-item">JavaScript</div>
+                            <div class="skill-item">C++</div>
                             <div class="skill-item">C#</div>
                             <div class="skill-item">C</div>
                             <div class="skill-item">Front-end</div>
-                            <div class="skill-item">Back-end</div>                    
+                            <div class="skill-item">Back-end</div>
                             <div class="skill-item">Desenvolvimento Web</div>
-                            <div class="skill-item">HTML5</div>
-                            <div class="skill-item">CSS3</div>
-                            <div class="skill-item">Bootstrap</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="about-image" data-aos="fade-left">
                     <img src="https://i.ibb.co/hRRrvy4G/jhonnatan.jpg" alt="Jhonnatan Costa">
                 </div>
@@ -315,7 +323,6 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <p>Todos os direitos reservados<br />Desenvolvido <span class="destaque">Jhonnatan Costa│Dev.</span></p>
     </footer>
@@ -324,22 +331,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
-        
-        // Menu mobile
-        document.querySelector('.menu-icon').addEventListener('click', function() {
+
+        document.querySelector('.menu-icon').addEventListener('click', function () {
             document.querySelector('.menu-navegacao').classList.add('active');
         });
-        
-        document.querySelector('.close-icon').addEventListener('click', function() {
+
+        document.querySelector('.close-icon').addEventListener('click', function () {
             document.querySelector('.menu-navegacao').classList.remove('active');
         });
-        
-        // Fechar menu ao clicar nos links
+
         document.querySelectorAll('.lista-navegacao a').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 document.querySelector('.menu-navegacao').classList.remove('active');
             });
         });
     </script>
 </body>
+
 </html>

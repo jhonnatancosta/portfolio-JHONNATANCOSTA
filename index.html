@@ -1,159 +1,611 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="assets/image/favicon-jcdev.ico">
   <title>Jhonnatan Costa │ Desenvolvedor Full-Stack</title>
-  <meta name="description" content="Desenvolvedor Full-Stack freelancer especializado em criação de sites, sistemas web, e-commerce e automações. Transforme suas ideias em soluções digitais.">
+  <meta name="description"
+    content="Desenvolvedor Full-Stack freelancer especializado em criação de sites, sistemas web, e-commerce e automações. Transforme suas ideias em soluções digitais.">
 
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/stats.js@0.17.0/build/stats.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/stats.js@0.17.0/build/stats.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --black: #050505;
+      --white: #fafafa;
+      --blue: #007BFF;
+      --secondary: #7e22ce;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--dark);
+      color: white;
+      overflow-x: hidden;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .destaque {
+      color: var(--primary);
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.95);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .container-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo a {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      z-index: 1002;
+    }
+
+    .menu-navegacao {
+      display: flex;
+    }
+
+    .lista-navegacao {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .lista-navegacao li a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 17px;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .lista-navegacao li a:hover,
+    .lista-navegacao li a.active {
+      color: white;
+    }
+
+    .lista-navegacao li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .lista-navegacao li a:hover::after,
+    .lista-navegacao li a.active::after {
+      width: 100%;
+    }
+
+    .close-icon {
+      display: none;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 1003;
+    }
+
+    .home {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 50px;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .container-home {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--primary);
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    }
+
+    .text-home h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #fff, var(--primary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-home span {
+      font-size: 1.8rem;
+      color: var(--gray);
+      display: block;
+      margin-bottom: 30px;
+    }
+
+    .texto-animado {
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .text-home p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .text-home a {
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .text-home a:hover {
+      color: var(--primary);
+    }
+
+    .redes-sociais {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .redes-sociais a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .redes-sociais a:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gray);
+      font-size: 1.5rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0) translateX(-50%);
+      }
+
+      40% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+
+      60% {
+        transform: translateY(-5px) translateX(-50%);
+      }
+    }
+
+    .footer {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 30px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: auto;
+    }
+
+    .footer p {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .footer .destaque {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    #loading-percentage {
+      font-size: 3rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark);
+      z-index: 9998;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+
+      .menu-navegacao {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--dark);
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        transition: all 0.4s ease;
+        z-index: 1001;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .menu-navegacao.active {
+        right: 0;
+      }
+
+      .close-icon {
+        display: block;
+      }
+
+      .lista-navegacao {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .lista-navegacao li a {
+        font-size: 18px;
+        padding: 10px 0;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .lista-navegacao li a::after {
+        display: none;
+      }
+
+      .text-home h1 {
+        font-size: 2.5rem;
+      }
+
+      .text-home span {
+        font-size: 1.5rem;
+      }
+
+      .profile-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .footer {
+        padding: 25px 0;
+      }
+
+      .footer p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .text-home span {
+      margin-bottom: 15px;
+    }
+
+    .text-home p {
+      margin: 8px 0;
+    }
+
+    .text-home p {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100%;
+    }
+
+    .text-home span {
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
-        /* ... (mantenha o estilo inline existente) ... */
-    </style>
-</head>
+
 <body>
-    <div id="loading-screen">
-        <div id="loading-percentage">0%</div>
+  <div id="loading-screen">
+    <div id="loading-percentage">0%</div>
+  </div>
+
+  <div class="loader"></div>
+
+  <header class="header">
+    <div class="container-header">
+      <div class="logo">
+        <a href="index.html">Jhonnatan Costa <span class="destaque">│Dev.</span></a>
+      </div>
+      <div class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <nav class="menu-navegacao">
+        <i class="fa-solid fa-times close-icon"></i>
+        <ul class="lista-navegacao">
+          <li><a href="index.html" class="active">INÍCIO</a></li>
+          <li><a href="about.html">SOBRE</a></li>
+          <li><a href="services.html">SERVIÇOS</a></li>
+          <li><a href="projects.html">PROJETOS</a></li>
+          <li><a href="contact.html">CONTATO</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div class="loader"></div>
+  <main id="home" class="home">
+    <div id="particles-js"></div>
+    <div class="container-home">
+      <img src="https://i.ibb.co/Nn6xt80z/Programador-Jhonnatan-Costa.jpg" alt="Jhonnatan Costa" class="profile-img">
 
-    <div id="header-component"></div>
+      <div class="text-home">
+        <h1>Jhonnatan Costa</h1>
+        <span>Desenvolvedor <span class="destaque texto-animado">Full-Stack</span></span>
 
-    <main id="home" class="home">
-        <div id="particles-js"></div>
-        <div class="container-home">
-            <img src="https://i.ibb.co/Nn6xt80z/Programador-Jhonnatan-Costa.jpg" 
-                 alt="Jhonnatan Costa" class="profile-img">
-            
-            <div class="text-home">
-                <h1>Jhonnatan Costa</h1>
-                <span>Desenvolvedor <span class="destaque texto-animado">Full-Stack</span></span>
-                
-                <p><i class="fas fa-envelope"></i> <a href="mailto:jhonnatancosta576@gmail.com">jhonnatancosta576@gmail.com</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5565992701468" target="_blank" rel="noopener">+55 65 99270-1468</a></p>
-            </div>
-            
-            <div class="redes-sociais">
-    <a href="https://github.com/jhonnatancosta" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/jhonnatan-costa-programador" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.workana.com/freelancer/6df627542189fab1f0516a6e11335434" target="_blank" rel="noopener" title="Workana"><i class="fa fa-briefcase"></i></a>
-    <!-- Ícones adicionados -->
-    <a href="https://www.instagram.com/jhonnatan.costa.oficial?igsh=NWJhaXoyMzhsbjh2" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/profile.php?id=100089137933930" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-</div>
-            
-            <div class="scroll-down">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
-    </main>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:jhonnatancosta576@gmail.com">jhonnatancosta576@gmail.com</a>
+        </p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5565992701468" target="_blank" rel="noopener">+55 65
+            99270-1468</a></p>
+      </div>
 
-    <div id="footer-component"></div>
+      <div class="redes-sociais">
+        <a href="https://github.com/jhonnatancosta" target="_blank" rel="noopener" title="GitHub"><i
+            class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/jhonnatan-costa-programador" target="_blank" rel="noopener"
+          title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.workana.com/freelancer/6df627542189fab1f0516a6e11335434" target="_blank" rel="noopener"
+          title="Workana"><i class="fa fa-briefcase"></i></a>
+        <a href="https://www.instagram.com/jhonnatan.costa.oficial?igsh=NWJhaXoyMzhsbjh2" target="_blank" rel="noopener"
+          title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100089137933930" target="_blank" rel="noopener"
+          title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
 
-    <script>
-        // Configuração das partículas
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS("particles-js", {
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: "#2563eb" },
-                    shape: { type: "circle" },
-                    opacity: { value: 0.5, random: true },
-                    size: { value: 3, random: true },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: "#2563eb",
-                        opacity: 0.3,
-                        width: 1
-                    },
-                    move: {
-                        enable: true,
-                        speed: 2,
-                        direction: "none",
-                        random: true,
-                        straight: false,
-                        out_mode: "out",
-                        bounce: false
-                    }
-                },
-                interactivity: {
-                    detect_on: "canvas",
-                    events: {
-                        onhover: { enable: true, mode: "grab" },
-                        onclick: { enable: true, mode: "push" },
-                        resize: true
-                    },
-                    modes: {
-                        grab: { distance: 140, line_linked: { opacity: 1 } },
-                        push: { particles_nb: 4 }
-                    }
-                },
-                retina_detect: true
-            });
-            
-            // Animação de digitação
-            const textElement = document.querySelector('.texto-animado');
-            const texts = ["Full-Stack", "Front-end", "Back-end", "Freelancer"];
-            let textIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-            
-            function typeEffect() {
-                const currentText = texts[textIndex];
-                
-                if (isDeleting) {
-                    textElement.textContent = currentText.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    textElement.textContent = currentText.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-                
-                if (!isDeleting && charIndex === currentText.length) {
-                    setTimeout(() => isDeleting = true, 1500);
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    textIndex = (textIndex + 1) % texts.length;
-                }
-                
-                setTimeout(typeEffect, isDeleting ? 50 : 100);
-            }
-            
-            typeEffect();
-            
-            // Scroll para a próxima seção
-            document.querySelector('.scroll-down').addEventListener('click', () => {
-                document.querySelector('#about').scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Simulação de carregamento
-            let progress = 0;
-            const loadingInterval = setInterval(() => {
-                progress += 1;
-                document.getElementById('loading-percentage').textContent = progress + '%';
-                
-                if (progress >= 100) {
-                    clearInterval(loadingInterval);
-                    document.getElementById('loading-screen').style.opacity = '0';
-                    setTimeout(() => {
-                        document.getElementById('loading-screen').style.display = 'none';
-                        document.querySelector('.loader').style.display = 'none';
-                    }, 500);
-                }
-            }, 30);
+      <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Todos os direitos reservados<br />Desenvolvido <span class="destaque">Jhonnatan Costa│Dev.</span></p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#2563eb" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#2563eb",
+            opacity: 0.3,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" },
+            resize: true
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 1 } },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+
+      const textElement = document.querySelector('.texto-animado');
+      const texts = ["Full-Stack", "Front-end", "Back-end", "Freelancer"];
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+        const currentText = texts[textIndex];
+
+        if (isDeleting) {
+          textElement.textContent = currentText.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          textElement.textContent = currentText.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentText.length) {
+          setTimeout(() => isDeleting = true, 1500);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+        }
+
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+      }
+
+      typeEffect();
+
+      document.querySelector('.scroll-down').addEventListener('click', () => {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: 'smooth'
         });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/components/particles.js"></script>
-    <script src="assets/js/components/textAnimation.js"></script>
+      });
+
+      let progress = 0;
+      const loadingInterval = setInterval(() => {
+        progress += 1;
+        document.getElementById('loading-percentage').textContent = progress + '%';
+
+        if (progress >= 100) {
+          clearInterval(loadingInterval);
+          document.getElementById('loading-screen').style.opacity = '0';
+          setTimeout(() => {
+            document.getElementById('loading-screen').style.display = 'none';
+            document.querySelector('.loader').style.display = 'none';
+          }, 500);
+        }
+      }, 30);
+
+      const menuIcon = document.querySelector('.menu-icon');
+      const closeIcon = document.querySelector('.close-icon');
+      const menuNavegacao = document.querySelector('.menu-navegacao');
+      const menuLinks = document.querySelectorAll('.lista-navegacao a');
+
+      function openMenu() {
+        menuNavegacao.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        menuNavegacao.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      menuIcon.addEventListener('click', openMenu);
+
+      closeIcon.addEventListener('click', closeMenu);
+
+      menuLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('click', (event) => {
+        if (menuNavegacao.classList.contains('active') &&
+          !menuNavegacao.contains(event.target) &&
+          !menuIcon.contains(event.target)) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuNavegacao.classList.contains('active')) {
+          closeMenu();
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
 </body>
+
 </html>
-<!DOCTYPE html>
