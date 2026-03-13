@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/image/favicon-jcdev.ico">
     <title>Jhonnatan Costa │ Contato</title>
-    <meta name="description" content="Entre em contato com Jhonnatan Costa para discutir seu projeto de desenvolvimento web, aplicativos ou soluções digitais personalizadas.">
-    
+    <meta name="description"
+        content="Entre em contato com Jhonnatan Costa para discutir seu projeto de desenvolvimento web, aplicativos ou soluções digitais personalizadas.">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/stats.js@0.17.0/build/stats.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -18,25 +19,24 @@
             --light: #f8fafc;
             --gray: #94a3b8;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: var(--dark);
             color: white;
             overflow-x: hidden;
         }
-        
+
         .destaque {
             color: var(--primary);
         }
-        
-        /* Header Styles (same as index.html) */
+
         .header {
             position: fixed;
             top: 0;
@@ -49,7 +49,7 @@
             padding: 20px 0;
             transition: all 0.3s ease;
         }
-        
+
         .container-header {
             max-width: 1200px;
             margin: 0 auto;
@@ -58,31 +58,31 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo a {
             font-size: 24px;
             font-weight: 700;
             color: white;
             text-decoration: none;
         }
-        
+
         .menu-icon {
             display: none;
             font-size: 24px;
             color: white;
             cursor: pointer;
         }
-        
+
         .menu-navegacao {
             display: flex;
         }
-        
+
         .lista-navegacao {
             display: flex;
             list-style: none;
             gap: 30px;
         }
-        
+
         .lista-navegacao li a {
             color: #94a3b8;
             text-decoration: none;
@@ -91,12 +91,12 @@
             transition: all 0.3s ease;
             position: relative;
         }
-        
+
         .lista-navegacao li a:hover,
         .lista-navegacao li a.active {
             color: white;
         }
-        
+
         .lista-navegacao li a::after {
             content: '';
             position: absolute;
@@ -107,12 +107,12 @@
             background: var(--primary);
             transition: all 0.3s ease;
         }
-        
+
         .lista-navegacao li a:hover::after,
         .lista-navegacao li a.active::after {
             width: 100%;
         }
-        
+
         .close-icon {
             display: none;
             font-size: 24px;
@@ -122,85 +122,94 @@
             right: 20px;
             cursor: pointer;
         }
-        
-        /* Contact Section Styles */
+
         .contact-section {
             padding: 150px 0 100px;
             background: linear-gradient(to bottom, #0f172a, #1e293b);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         h1 {
             font-size: 48px;
             margin-bottom: 30px;
             text-align: center;
         }
-        
+
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
         }
-        
+
         .contact-info {
             background: rgba(30, 41, 59, 0.5);
             border-radius: 20px;
             padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .contact-info h2 {
             font-size: 32px;
             margin-bottom: 20px;
         }
-        
+
         .contact-info p {
             color: var(--gray);
             margin-bottom: 30px;
             line-height: 1.6;
         }
-        
+
         .contact-details h3 {
             font-size: 24px;
             margin-bottom: 20px;
             color: var(--primary);
         }
-        
+
         .contact-list {
             list-style: none;
             margin-bottom: 30px;
         }
-        
+
         .contact-list li {
             margin-bottom: 15px;
             color: var(--gray);
             display: flex;
             align-items: flex-start;
         }
-        
+
         .contact-list li i {
             color: var(--primary);
             margin-right: 15px;
             min-width: 25px;
             font-size: 20px;
         }
-        
+
+        .contact-list li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list li a:hover {
+            color: var(--primary);
+        }
+
         .social-media h3 {
             font-size: 24px;
             margin-bottom: 15px;
             color: var(--primary);
         }
-        
+
         .social-links {
             display: flex;
             gap: 15px;
         }
-        
+
         .social-links a {
             display: flex;
             align-items: center;
@@ -214,35 +223,35 @@
             transition: all 0.3s ease;
             text-decoration: none;
         }
-        
+
         .social-links a:hover {
             background: var(--primary);
             color: white;
             transform: translateY(-3px);
         }
-        
+
         .contact-form {
             background: rgba(30, 41, 59, 0.5);
             border-radius: 20px;
             padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .contact-form h2 {
             font-size: 32px;
             margin-bottom: 20px;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
         }
-        
+
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -254,18 +263,18 @@
             font-size: 16px;
             transition: all 0.3s ease;
         }
-        
+
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
         }
-        
+
         .form-group textarea {
             height: 150px;
             resize: vertical;
         }
-        
+
         .submit-btn {
             display: inline-block;
             padding: 15px 30px;
@@ -278,13 +287,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .submit-btn:hover {
             background: transparent;
             border: 1px solid var(--primary);
             transform: translateY(-3px);
         }
-        
+
         .success-message {
             display: none;
             color: #10b981;
@@ -292,15 +301,14 @@
             font-weight: 500;
             text-align: center;
         }
-        
-        /* Footer Styles (same as index.html) */
+
         .footer {
             background: rgba(15, 23, 42, 0.9);
             padding: 30px 0;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .footer p {
             color: var(--gray);
         }
@@ -312,10 +320,12 @@
         }
 
         @media (max-width: 768px) {
-            .menu-icon, .close-icon {
+
+            .menu-icon,
+            .close-icon {
                 display: block;
             }
-            
+
             .menu-navegacao {
                 position: fixed;
                 top: 0;
@@ -328,24 +338,24 @@
                 transition: all 0.3s ease;
                 z-index: 1001;
             }
-            
+
             .menu-navegacao.active {
                 right: 0;
             }
-            
+
             .lista-navegacao {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             h1 {
                 font-size: 36px;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- HEADER -->
     <header class="header">
         <div class="container-header">
             <div class="logo">
@@ -370,64 +380,74 @@
     <main class="contact-section">
         <div class="container">
             <h1>ENTRE EM <span class="destaque">CONTATO</span></h1>
-            
+
             <div class="contact-content">
                 <div class="contact-info" data-aos="fade-right">
                     <h2>Vamos conversar sobre seu projeto</h2>
                     <h3>🚀 Está com uma ideia em mente ou precisa de um desenvolvedor confiável para o seu projeto?</h3>
-                    <p>Sou desenvolvedor e pentester, estou disponível para discutir suas ideias e necessidades. com foco em criação de IA e soluções inteligentes. Estou disponível para freelancer e pronto para transformar suas ideias em realidade!
- Entre em contato através dos canais abaixo ou preencha o formulário ao lado, Vamos construir algo incrível juntos! 💻✨ .</p>
-                    
+                    <p>Sou desenvolvedor e pentester, estou disponível para discutir suas ideias e necessidades. com
+                        foco em criação de IA e soluções inteligentes. Estou disponível para freelancer e pronto para
+                        transformar suas ideias em realidade!
+                        Entre em contato através dos canais abaixo ou preencha o formulário ao lado, Vamos construir
+                        algo incrível juntos! 💻✨ .</p>
+
                     <div class="contact-details">
                         <h3>Informações de Contato</h3>
                         <ul class="contact-list">
-                            <li><i class="fas fa-envelope"></i> jhonnatancosta576@gmail.com</li>
+                            <li><i class="fas fa-envelope"></i> <a href="#contact-form">jhonnatancosta576@gmail.com</a>
+                            </li>
                             <li><i class="fas fa-map-marker-alt"></i> Várzea Grande, MT - Brasil</li>
-                            <li><i class="fab fa-whatsapp"></i> +55 65 99270-1468</li>
+                            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5565981047790" target="_blank"
+                                    rel="noopener">+55 65 98104-7790</a></li>
                         </ul>
                     </div>
-                    
+
                     <div class="social-media">
                         <h3>Redes Sociais</h3>
                         <div class="social-links">
-                            <a href="https://github.com/jhonnatancosta" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/jhonnatan-costa-programador" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.workana.com/freelancer/6df627542189fab1f0516a6e11335434" target="_blank" rel="noopener" title="Workana"><i class="fas fa-briefcase"></i></a>
-                            <a href="https://www.instagram.com/jhonnatan.costa.oficial?igsh=NWJhaXoyMzhsbjh2" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a> 
-                            <a href="https://www.facebook.com/profile.php?id=100089137933930" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            
-                    </div>
+                            <a href="https://github.com/jhonnatancosta" target="_blank" rel="noopener" title="GitHub"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/jhonnatan-costa-programador" target="_blank"
+                                rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.workana.com/freelancer/6df627542189fab1f0516a6e11335434"
+                                target="_blank" rel="noopener" title="Workana"><i class="fas fa-briefcase"></i></a>
+                            <a href="https://www.instagram.com/jhonnatan.costa.oficial?igsh=NWJhaXoyMzhsbjh2"
+                                target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100089137933930" target="_blank"
+                                rel="noopener" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="contact-form" data-aos="fade-left">
+
+                <div class="contact-form" id="contact-form" data-aos="fade-left">
                     <h2>Envie sua mensagem</h2>
-                    <form id="contactForm">
+
+                    <form id="contactForm" action="https://formspree.io/f/xjgarjnn" method="POST">
                         <div class="form-group">
                             <label for="name">Nome</label>
                             <input type="text" id="name" name="name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">E-mail</label>
                             <input type="email" id="email" name="email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">Telefone/WhatsApp</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="subject">Assunto</label>
                             <input type="text" id="subject" name="subject">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message">Mensagem</label>
                             <textarea id="message" name="message" required></textarea>
                         </div>
-                        
+
                         <button type="submit" class="submit-btn">Enviar Mensagem</button>
                         <p id="successMessage" class="success-message">Sua mensagem foi enviada com sucesso!</p>
                     </form>
@@ -436,7 +456,6 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <p>Todos os direitos reservados<br />Desenvolvido <span class="destaque">Jhonnatan Costa│Dev.</span></p>
     </footer>
@@ -445,40 +464,82 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
-        
-        // Menu mobile
-        document.querySelector('.menu-icon').addEventListener('click', function() {
+
+        document.querySelector('.menu-icon').addEventListener('click', function () {
             document.querySelector('.menu-navegacao').classList.add('active');
         });
-        
-        document.querySelector('.close-icon').addEventListener('click', function() {
+
+        document.querySelector('.close-icon').addEventListener('click', function () {
             document.querySelector('.menu-navegacao').classList.remove('active');
         });
-        
-        // Fechar menu ao clicar nos links
+
         document.querySelectorAll('.lista-navegacao a').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 document.querySelector('.menu-navegacao').classList.remove('active');
             });
         });
-        
-        // Máscara para telefone
-        document.getElementById('phone').addEventListener('input', function(e) {
+
+        document.getElementById('phone').addEventListener('input', function (e) {
             let value = e.target.value.replace(/\D/g, '');
             value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
             value = value.replace(/(\d)(\d{4})$/, '$1-$2');
             e.target.value = value;
         });
-        
-        // Simulação de envio do formulário
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            document.getElementById('successMessage').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-                this.reset();
-            }, 3000);
+
+            const form = e.target;
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    setTimeout(() => {
+                        form.reset();
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 3000);
+                } else {
+                    alert('Ops! Algo deu errado. Tente novamente.');
+                }
+            } catch (error) {
+                alert('Erro de conexão. Verifique sua internet.');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === "#" || href === "") return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        window.addEventListener('load', function () {
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 500);
+                }
+            }
         });
     </script>
 </body>
+
 </html>
